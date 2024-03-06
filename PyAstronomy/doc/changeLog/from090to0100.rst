@@ -1,0 +1,19 @@
+From 0.9.0 to 0.10.0
+====================================
+
+  ==================  =============================================
+  Concerns            What happened
+  ==================  =============================================
+  PyAstronomy         *Python 3.x compatibility*
+  pyasl               *New functionality*
+                        - slidingPolyResOutlier
+                        - New output/input options for daycnv
+                        - 'nanHandling' for binningx0dt
+                        - ExoplanetEU2 for more convenient access
+                          to exoplanet.eu data
+                        - Photometric passbands
+  funcFit             *Improved functionality*
+                        - Sorting in parameterSummary
+  pyaC                *New functionality*
+                        - Find zero crossings in discrete data
+  ==================  =============================================

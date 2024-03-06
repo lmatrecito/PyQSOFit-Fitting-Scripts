@@ -1,0 +1,75 @@
+PyQSOFit Calculated Line Properties
+
+Broad H_alpha:
+ FWHM = 5810.36 km s^-1
+ sigma = 3203.35 km s^-1
+ EW =  460.95 Ang
+ Peak =  6603.05 Ang
+ Area =  6278.33 x 10^-17 erg s^-1 cm^-2
+Narrow H_alpha:
+ FWHM = 463.92 km s^-1
+ sigma = 191.37 km s^-1
+ EW =  7.93 Ang
+ Peak =  6563.51 Ang
+ Area =  108.05 x 10^-17 erg s^-1 cm^-2
+
+Broad H_beta:
+ FWHM = 6261.40 km s^-1
+ sigma = 5551.70 km s^-1
+ EW =  143.68 Ang
+ Peak =  4893.62 Ang
+ Area =  2072.63 x 10^-17 erg s^-1 cm^-2
+Narrow H_beta:
+ FWHM = 990.55 km s^-1
+ sigma = 413.82 km s^-1
+ EW =  0.14 Ang
+ Peak =  4860.06 Ang
+ Area =  2.08 x 10^-17 erg s^-1 cm^-2
+
+Broad H_gamma:
+ FWHM = 8631.04 km s^-1
+ sigma = 4117.30 km s^-1
+ EW =  29.83 Ang
+ Peak =  4358.30 Ang
+ Area =  486.83 x 10^-17 erg s^-1 cm^-2
+
+[OIII]5007:
+ Core
+    FWHM = 990.55 km s^-1
+    sigma = 413.82 km s^-1
+    EW =  10.08 Ang
+    Peak =  5005.54 Ang
+    Area =  142.64 x 10^-17 erg s^-1 cm^-2
+ Wing
+    FWHM = 0.00 km s^-1
+    sigma = 0.00 km s^-1
+    EW =  0.00 Ang
+    Peak =  0.00 Ang
+    Area =  0.00 x 10^-17 erg s^-1 cm^-2
+
+[OIII]4959:
+ Core
+    FWHM = 990.55 km s^-1
+    sigma = 413.82 km s^-1
+    EW =  3.27 Ang
+    Peak =  4957.62 Ang
+    Area =  46.62 x 10^-17 erg s^-1 cm^-2
+ Wing
+    FWHM = 0.00 km s^-1
+    sigma = 0.00 km s^-1
+    EW =  0.00 Ang
+    Peak =  0.00 Ang
+    Area =  0.00 x 10^-17 erg s^-1 cm^-2
+
+Broad MgII:
+ FWHM = 0.00 km s^-1
+ sigma = 0.00 km s^-1
+ EW =  0.00 Ang
+ Peak =  0.00 Ang
+ Area =  0.00 x 10^-17 erg s^-1 cm^-2
+Narrow MgII:
+ FWHM = 0.00 km s^-1
+ sigma = 0.00 km s^-1
+ EW =  0.00 Ang
+ Peak =  0.00 Ang
+ Area =  0.00 x 10^-17 erg s^-1 cm^-2

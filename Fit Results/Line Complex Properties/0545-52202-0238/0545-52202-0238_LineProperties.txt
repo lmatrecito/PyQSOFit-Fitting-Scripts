@@ -1,0 +1,93 @@
+PyQSOFit Calculated Line Properties
+
+Broad Hα:
+ FWHM = 0.00 km s^-1
+ sigma = 0.00 km s^-1
+ EW =  0.00 Ang
+ Peak =  0.00 Ang
+ Area =  0.00 x 10^-17 erg s^-1 cm^-2
+Narrow Hα:
+ FWHM = 0.00 km s^-1
+ sigma = 0.00 km s^-1
+ EW =  0.00 Ang
+ Peak =  0.00 Ang
+ Area =  0.00 x 10^-17 erg s^-1 cm^-2
+Hα Wing:
+ FWHM = 0.00 km s^-1
+ sigma = 0.00 km s^-1
+ EW =  0.00 Ang
+ Peak =  0.00 Ang
+ Area =  0.00 x 10^-17 erg s^-1 cm^-2
+
+Broad Hβ:
+ FWHM = 11401.82 km s^-1
+ sigma = 6010.12 km s^-1
+ EW =  85.78 Ang
+ Peak =  4817.30 Ang
+ Area =  777.84 x 10^-17 erg s^-1 cm^-2
+Narrow Hβ:
+ FWHM = 623.53 km s^-1
+ sigma = 259.18 km s^-1
+ EW =  2.19 Ang
+ Peak =  4862.24 Ang
+ Area =  19.74 x 10^-17 erg s^-1 cm^-2
+Hβ Wing:
+ FWHM = 268.03 km s^-1
+ sigma = 111.44 km s^-1
+ EW =  1.78 Ang
+ Peak =  4862.02 Ang
+ Area =  16.10 x 10^-17 erg s^-1 cm^-2
+
+Broad Hγ
+ FWHM = 1605.30 km s^-1
+ sigma = 672.51 km s^-1
+ EW =  1.98 Ang
+ Peak =  4335.33 Ang
+ Area =  19.82 x 10^-17 erg s^-1 cm^-2
+Narrow Hγ
+ FWHM = 250.29 km s^-1
+ sigma = 104.06 km s^-1
+ EW =  0.93 Ang
+ Peak =  4340.71 Ang
+ Area =  9.30 x 10^-17 erg s^-1 cm^-2
+
+[OIII]5007:
+ Core
+    FWHM = 623.53 km s^-1
+    sigma = 259.18 km s^-1
+    EW =  19.98 Ang
+    Peak =  5007.79 Ang
+    Area =  176.49 x 10^-17 erg s^-1 cm^-2
+ Wing
+    FWHM = 268.03 km s^-1
+    sigma = 111.44 km s^-1
+    EW =  16.41 Ang
+    Peak =  5007.57 Ang
+    Area =  144.95 x 10^-17 erg s^-1 cm^-2
+
+[OIII]4959:
+ Core
+    FWHM = 623.53 km s^-1
+    sigma = 259.18 km s^-1
+    EW =  6.49 Ang
+    Peak =  4959.85 Ang
+    Area =  57.68 x 10^-17 erg s^-1 cm^-2
+ Wing
+    FWHM = 268.03 km s^-1
+    sigma = 111.44 km s^-1
+    EW =  5.33 Ang
+    Peak =  4959.63 Ang
+    Area =  47.38 x 10^-17 erg s^-1 cm^-2
+
+Broad MgII:
+ FWHM = 12819.63 km s^-1
+ sigma = 5043.71 km s^-1
+ EW =  46.25 Ang
+ Peak =  2817.24 Ang
+ Area =  846.74 x 10^-17 erg s^-1 cm^-2
+Narrow MgII:
+ FWHM = 985.37 km s^-1
+ sigma = 411.66 km s^-1
+ EW =  3.68 Ang
+ Peak =  2782.63 Ang
+ Area =  67.25 x 10^-17 erg s^-1 cm^-2
