@@ -303,8 +303,8 @@ def vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl,
     vel = (BL_wave - NL_peak) / (NL_peak) * c
     clean_vel = (clean_EL_wave - NL_peak) / (NL_peak) * c
     fig3 = plt.figure(figsize=(16,10))
-    plt.plot(vel, BL_flux_norm, c=color, linewidth=2.5, linestyle='--', label=line_plot+' Fitted BL Profile', alpha=0.7)
-    plt.plot(clean_vel, clean_BL_flux_norm, c=color, linewidth=2.5, label=line_plot+' Cleaned BL Profile', alpha=0.7)
+    plt.plot(vel, BL_flux_norm, c=color, linewidth=2.5, linestyle='--', label=line_plot+' Fitted BL Profile', alpha=1)
+    plt.plot(clean_vel, clean_BL_flux_norm, c=color, linewidth=2.5, label=line_plot+' Cleaned BL Profile', alpha=0.5)
     plt.axvline(0, c='k', linestyle=(0, (5, 5)), linewidth=1.5)
     # Plot details
     plt.xlabel(r'Velocity (km s$^{-1}$)', fontsize=18)                  
@@ -362,7 +362,7 @@ hb_vs = 'yes'
 if(hb_vs == 'yes'):
     line = 'Hb'
     line_plot = r' H$\beta$'
-    color = 'darkgoldenrod'
+    color = 'navy'
     wave_range = 4600,5200
     nl_range = 4700,4900
     vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl, 
@@ -375,4 +375,6 @@ if(mg2_vs == 'yes'):
     color = 'darkgreen'
     wave_range = 2700,2900
     nl_range = 2700,2900
+    vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl, 
+                 bl_profile, data_contFeII_sub)
 
