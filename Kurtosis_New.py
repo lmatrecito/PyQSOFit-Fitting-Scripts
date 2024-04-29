@@ -12,11 +12,11 @@ import pandas as pd
 
 # -----------------------------------------------------------------------------
 
-# Setting up data structures
+# Setting up data structures - LOWEST
 
 # Results from Fitting-Script.py are saved as plateID-MJD-fiberID_"".npy files
 # Source is just the plateID-MJD-fiberID.
-source = '2606-54154-0581'
+source = '2025-53431-0603'
 # ---
 # Path of stored PyQSOFit fit results
 path = 'Fit Results/Line Complex Properties/'+source+'/'+'Fit Data/'
@@ -25,6 +25,11 @@ path = 'Fit Results/Line Complex Properties/'+source+'/'+'Fit Data/'
 nl = np.load(path+source+'_NLData.npy')        
 data_contFeII_sub = np.load(path+source+'_DataCFeII.npy')  
 wavelength = np.load(path+source+'_Wavelength.npy')
+bl = np.load(path+source+'_BLData.npy')
+bl_profile = np.load(path+source+'_BLSpectrum.npy')
+# BL Data
+bl_matrix = np.vstack((wavelength, bl)).T
+bl_data = pd.DataFrame(bl_matrix, columns=['Wavelength','Flux'])
 # Cleaning data
 cleaned_data = data_contFeII_sub - nl
 # ---
@@ -36,7 +41,7 @@ data = pd.DataFrame(data_matrix, columns=['Wavelength','Flux'])
 # -----------------------------------------------------------------------------
 
 # Wavelength range for emission line (EL) you want to analyse
-low_wave = 4800
+low_wave = 4600
 high_wave = 5200
 # Truncating data to that EL for plotting later on
 EL_data = data.loc[(data['Wavelength'] >= low_wave) & (data['Wavelength'] <= high_wave)]
@@ -59,6 +64,7 @@ EL_high = np.interp(high_percentage, EL_cdf, EL_wave)
 EL_matrix = np.vstack((EL_low, EL_high)).T
 EL_wave_pairs = pd.DataFrame(EL_matrix, columns=['Wavelength Low','Wavelength High'])
 new = EL_wave_pairs.values.tolist()
+
 
 
 M_data = []
@@ -121,8 +127,10 @@ IPV_plot = str(IPV_val_d*2)
 
 # -----------------------------------------------------------------------------
 
-# Path of stored PyQSOFit fit results
-source_2 = '2025-53431-0603'
+
+# Path of stored PyQSOFit fit results - HIGHEST
+
+source_2 = '2606-54154-0581'
 path = 'Fit Results/Line Complex Properties/'+source_2+'/'+'Fit Data/'
 # ---
 # Obtaining line profile data result components from Fitting-Script.py
@@ -139,7 +147,7 @@ data2 = pd.DataFrame(data_matrix2, columns=['Wavelength','Flux'])
 
 
 # Wavelength range for emission line (EL) you want to analyse
-low_wave2 = 4800
+low_wave2 = 4600
 high_wave2 = 5200
 # Truncating data to that EL for plotting later on
 EL_data2 = data2.loc[(data2['Wavelength'] >= low_wave2) & (data2['Wavelength'] <= high_wave2)]
@@ -223,30 +231,52 @@ IPV_plot2 = str(IPV_val_d2*2)
 
 
 # Plotting Stuff
-plt.figure(1)
-plt.plot(perc, K_calc, c='teal', linewidth=2.5, label=source+r' H$\beta$ Stubby')
-plt.plot(perc, K_calc2, c='magenta', linewidth=2.5, label=source_2+r' H$\beta$ Peak-y')
+#plt.figure(1)
+#plt.plot(EL_wave, EL_cdf, c='teal', linewidth=2.5, label=source+r' H$\beta$ Lowest Kurtosis')
+#plt.plot(EL_wave2, EL_cdf2, c='magenta', linewidth=2.5, label=source_2+r' H$\beta$ Highest Kurtosis')
+
+
+plt.figure(2)
+plt.plot(perc, K_calc, c='navy', linewidth=3, label=source+r' H$\beta$ Peak-y', alpha=1)
+plt.plot(perc, K_calc2, c='darkorange', linewidth=3, label=source_2+r' H$\beta$ Stubby', alpha=0.8)
 plt.xlabel(r'Area under curve (%)', fontsize=18)
 plt.ylabel(r'Kurtosis', fontsize=18, labelpad=10)
-plt.title(r'IPV(x)/IPV'+IPV_plot2, fontsize=24)
+plt.title(r'IPV(x)/IPV'+IPV_plot, fontsize=24)
 plt.tick_params(axis='both', length=8, width=1, which='major', labelsize=14)
+plt.xlim(0,100)
 plt.legend()
 
-#plt.figure(2)
-#plt.plot(perc, IPV_n)
+#plt.hlines(0.175, 0, 100, color='navy', linestyle=':', linewidth=1.5)
+#plt.axvline(87.18, c='navy', linestyle='--', linewidth=1.5)
+#plt.text(88, 0.22, 'FWHM = IPV88', c='navy', fontsize=10)
+#plt.hlines(1.182, 0, 100, color='darkorange', linestyle=':', linewidth=1.5)
+#plt.axvline(19.90, c='darkorange', linestyle='--', linewidth=1.5)
+#plt.text(21, 1.23, 'FWHM = IPV20', c='darkorange', fontsize=10)
 
 
-'''plt.figure(2)
+#plt.figure(3)
+#plt.plot(perc, IPV_n, c='teal', linewidth=2.5, label=source+r' H$\beta$ Lowest Kurtosis')
+#plt.plot(perc, IPV_n2, c='magenta', linewidth=2.5, label=source_2+r' H$\beta$ Highest Kurtosis')
+
+
+#top = IPV_n[40]
+#bottom = IPV_d
+#print(1.397*(top/bottom))
+
+'''
+plt.figure(2)
+l_wave_n = 4600
+h_wave_n = 5200
 plt.plot(EL_wave, EL_flux, linewidth=3, c='k', label='Cleaned Data')
 plt.axvline(M_med, c='#52693A', linewidth=2, linestyle=':', label='Median')
 # IPV 1 plot stuff
 plt.fill_between(EL_wave, EL_flux, where=(EL_wave >= l_wave_n)&(EL_wave <= h_wave_n), color='#40476D', alpha=0.15)
-plt.hlines(0, l_wave_n, h_wave_n, linewidth=2, color='#40476D', label='IPV'+str(IPV_val_n))
-plt.text(M_med-75, +5, '%.0f' % IPV_n+' km/s', c='#40476D', fontsize=12)
+#plt.hlines(0, l_wave_n, h_wave_n, linewidth=2, color='#40476D', label='IPV'+str(IPV_val_n))
+#plt.text(M_med-75, +5, '%.0f' % IPV_n+' km/s', c='#40476D', fontsize=12)
 # IPV 2 plot stuff
 plt.fill_between(EL_wave, EL_flux, where=(EL_wave >= l_wave_d)&(EL_wave <= h_wave_d), color='#CC4514', alpha=0.15)
-plt.hlines(-6, l_wave_d, h_wave_d, linewidth=2, color='#CC4514', label='IPV'+str(IPV_val_d))
-plt.text(h_wave_d+5, -8, '%.0f' % IPV_d+' km/s', c='#CC4514', fontsize=12)
+#plt.hlines(-6, l_wave_d, h_wave_d, linewidth=2, color='#CC4514', label='IPV'+str(IPV_val_d))
+#plt.text(h_wave_d+5, -8, '%.0f' % IPV_d+' km/s', c='#CC4514', fontsize=12)
 # Labels and title
 plt.xlabel(r'$\rm Rest \, Wavelength$ ($\rm \AA$)', fontsize=18)
 plt.ylabel(r'$\rm f_{\lambda}$ ($\rm 10^{-17} erg\;s^{-1}\;cm^{-2}\;\AA^{-1}$)', fontsize=18)

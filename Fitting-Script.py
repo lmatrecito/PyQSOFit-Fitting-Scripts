@@ -47,13 +47,15 @@ path4 = path1+'sfddata/'
 
 # Opening spectrum to be fitted. NOTE: SDSS fits files are saved as
 # spec-plateID-MJD-fiberID.fits. Source is just the plateID-MJD-fiberID
-source = '2519-54570-0300'
+source = '1779-53089-0238'
 spec = 'spec-'+source+'.fits'
 data = fits.open(os.path.join(path1+'Data/'+spec))
 lam = 10**data[1].data['loglam']                           # OBS wavelength (A)
 flux = data[1].data['flux']                           # OBS flux (erg/s/cm^2/A)
 err = 1./np.sqrt(data[1].data['ivar'])                          # 1 sigma error
 z = data[2].data['z'][0]                                             # Redshift
+#print(z)
+z = 0.2755
 
 # Optional information... 
 ra = data[0].header['plug_ra']                                             # RA 
@@ -92,8 +94,8 @@ param_filename = '/Users/lmm8709/PyQSOFit/Fit Results/Line Complex Properties/'+
 
 # Do the fitting. NOTE: Change arguments accordingly
 q_mle.Fit(name=None, nsmooth=1, deredden=False, 
-          reject_badpix=False, wave_range=None, wave_mask=np.array([[3985.,3993.]]), 
-          decompose_host=False, host_line_mask=False, BC03=False, Mi=None, 
+          reject_badpix=False, wave_range=None, wave_mask=np.array([[4937.,4946.],[4370.,4375.]]), 
+          decompose_host=True, host_line_mask=False, BC03=False, Mi=None, 
           npca_gal=5, npca_qso=10, Fe_uv_op=True, Fe_flux_range=None, 
           poly=True, BC=False, initial_guess=None, tol=1e-10, use_ppxf=True,
           n_pix_min_conti=100, param_file_name='qsopar.fits', MC=False, 
@@ -105,7 +107,7 @@ q_mle.Fit(name=None, nsmooth=1, deredden=False,
 end = timeit.default_timer()
 print('Fitting finished in : '+str(np.round(end-start))+'s')
 
-# wave_mask argument structure: np.array([[3985.,3993.]])
+# wave_mask argument structure: np.array([[4943.,4946.]])
 
 # -----------------------------------------------------------------------------
 
@@ -125,7 +127,7 @@ data = fits.open(path3+source+'.fits')
 path5 = path2+'Line Complex Properties/'+source+'/'
 
 # Plotting H_alpha coomplex
-plot_Ha = 'no'  
+plot_Ha = 'yes'  
 if(plot_Ha =='yes'):
     # Plotting broad H_alpha, NII, and SII line complex
     fig1 = plt.figure(figsize=(16,12))
@@ -170,7 +172,7 @@ if(plot_Hb =='yes'):
     plt.xticks(fontsize=16)
     plt.yticks(fontsize=16)
     plt.tick_params(which='major', length=12, width=1)
-    plt.ylim(-5, np.max(q_mle.line_flux)+5)
+    plt.ylim(-5, np.max(q_mle.line_flux))
     plt.xlabel(r'$\rm Rest \, Wavelength$ ($\rm \AA$)', fontsize = 18)
     plt.ylabel(r'$\rm f_{\lambda}$ ($\rm 10^{-17} erg\;s^{-1}\;cm^{-2}\;\AA^{-1}$)'
                , fontsize = 18)
@@ -194,7 +196,7 @@ if(plot_Hg == 'yes'):
              'b', lw=2)
     plt.plot(q_mle.wave, q_mle.line_flux,'k')
     plt.xlim(4250, 4450)
-    plt.ylim(-5, np.max(q_mle.line_flux)-10)
+    plt.ylim(-5, np.max(q_mle.line_flux)-300)
     plt.xlabel(r'$\rm Rest \, Wavelength$ ($\rm \AA$)', fontsize = 20)
     plt.ylabel(r'$\rm f_{\lambda}$ ($\rm 10^{-17} erg\;s^{-1}\;cm^{-2}\;\AA^{-1}$)'
                , fontsize = 20)
