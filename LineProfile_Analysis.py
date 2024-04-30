@@ -122,10 +122,10 @@ def vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl,
     
     # CDF Plots 
     fig1 = plt.figure(figsize=(18,12))
-    plt.plot(BL_wave, BL_cdf, linewidth=3, c='#DB1D1A', label=r'Fitted H$\alpha$ BL CDF', alpha=0.5)
-    plt.axvline(ctr, c='#DB1D1A', linestyle='--', linewidth=2, label='Fitted Centroid')
-    plt.plot(clean_EL_wave, clean_BL_cdf, linewidth=3, c='k', label=r'Cleaned H$\alpha$ BL CDF', alpha=0.5)
-    plt.axvline(clean_ctr, c='k', linestyle='--', linewidth=2, label='Cleaned Centroid')
+    plt.plot(BL_wave, BL_cdf, linewidth=3, linestyle='--', c='#DB1D1A', label=r'Fitted H$\alpha$ BL CDF', alpha=0.8)
+    plt.axvline(ctr, c='#DB1D1A', linestyle='--', linewidth=1, label='Fitted Centroid')
+    plt.plot(clean_EL_wave, clean_BL_cdf, linewidth=3, c='b', label=r'Cleaned H$\alpha$ BL CDF', alpha=0.5)
+    plt.axvline(clean_ctr, c='b', linewidth=1, label='Cleaned Centroid')
     plt.title(source+line_plot+r' CDF', fontsize=30)
     plt.ylabel('Probability', fontsize=20, labelpad=10)
     plt.xlabel(r'Wavelength ($\rm \AA$)', fontsize=18, labelpad=10)
@@ -265,9 +265,9 @@ def vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl,
     # calculated velocity shifts 
     ax1.axvline(NL_peak, c='#146746', linestyle=':', linewidth=2, label='NL Peak')
     ax1.axvline(BL_peak, c='#CB2C2A', linestyle=':', linewidth=2, label='BL Peak')
-    ax1.axvline(ctr, c='#629FD0', linestyle='--', linewidth=2, label='BL Centroid')
+    #ax1.axvline(ctr, c='#629FD0', linestyle='--', linewidth=2, label='BL Centroid')
     ax1.axvline(clean_ctr, c='#629FD0', linestyle='--', linewidth=2, label='Cleaned BL Centroid')
-    ax1.axvline(C80_ctr, c='#9B469B', linestyle='--', linewidth=2, label='BL C80')
+    #ax1.axvline(C80_ctr, c='#9B469B', linestyle='--', linewidth=2, label='BL C80')
     ax1.axvline(clean_C80_ctr, c='#9B469B', linestyle='--', linewidth=2, label='Cleaned BL C80')
     
     # Primary x-axis details (top, redshifted)
@@ -352,7 +352,7 @@ ha_vs = 'yes'
 if(ha_vs == 'yes'):
     line = 'Ha'
     line_plot = r' H$\alpha$'
-    color = 'purple'
+    color = 'darkorange'
     wave_range = 6200,6900
     nl_range = 6500,6800 
     vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl, 
@@ -362,7 +362,7 @@ hb_vs = 'yes'
 if(hb_vs == 'yes'):
     line = 'Hb'
     line_plot = r' H$\beta$'
-    color = 'navy'
+    color = 'purple'
     wave_range = 4600,5200
     nl_range = 4700,4900
     vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl, 
@@ -372,7 +372,7 @@ mg2_vs = 'no'
 if(mg2_vs == 'yes'):
     line = 'MgII'
     line_plot = 'MgII'
-    color = 'darkgreen'
+    color = 'teal'
     wave_range = 2700,2900
     nl_range = 2700,2900
     vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl, 
