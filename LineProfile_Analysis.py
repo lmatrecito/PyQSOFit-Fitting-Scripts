@@ -309,7 +309,7 @@ def vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl,
     # Plot details
     plt.xlabel(r'Velocity (km s$^{-1}$)', fontsize=18)                  
     plt.ylabel('Normalized Flux', fontsize=18, labelpad=10)
-    plt.title('Cleaned BL Profiles', fontsize=20, pad=10)
+    plt.title('BL Profiles', fontsize=20, pad=10)
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)
     plt.tick_params(which='major', length=12, width=1)
@@ -352,7 +352,7 @@ ha_vs = 'yes'
 if(ha_vs == 'yes'):
     line = 'Ha'
     line_plot = r' H$\alpha$'
-    color = 'darkorange'
+    color = 'purple'
     wave_range = 6200,6900
     nl_range = 6500,6800 
     vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl, 
@@ -362,7 +362,7 @@ hb_vs = 'yes'
 if(hb_vs == 'yes'):
     line = 'Hb'
     line_plot = r' H$\beta$'
-    color = 'purple'
+    color = 'darkorange'
     wave_range = 4600,5200
     nl_range = 4700,4900
     vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl, 
