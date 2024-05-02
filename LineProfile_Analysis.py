@@ -18,7 +18,7 @@ import pandas as pd
 
 # Results from Fitting-Script.py are saved as plateID-MJD-fiberID_"".npy files
 # Source is just the plateID-MJD-fiberID. SDSS name is the SDSS object name.
-source = '0432-51884-0324'
+source = '1592-52990-0139'
 SDSS_name = 'X'
 
 # Path of stored PyQSOFit fit results
@@ -34,7 +34,7 @@ data_contFeII_sub = np.load(path+source+'_DataCFeII.npy')    # cleaned spectrum
 data = np.load(path+source+'_Data.npy')             # flux from SDSS .fits file
 wavelength = np.load(path+source+'_Wavelength.npy')
 #z = np.load(path+source+'_z.npy')
-z = 0.2349                                                 # corrected redshift
+z = 0.4517                                                # corrected redshift
 c = 299792                                             # speed of light in km/s
 
 # Converting .npy files into 2D dataframes to make velocity shift calculations
@@ -75,7 +75,6 @@ def vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl,
     # calculating all three types of velocity shifts
     NL_max = NL_data.loc[NL_data['Flux'] == NL_flux.max()]
     NL_peak = int(NL_max['Wavelength'])
-    #peak_nha = 6562.61 # use in case NL data is heavily blended
     
     # Broad-line (BL) profile
     BL_data = bl_data.loc[(bl_data['Wavelength'] >= wave_range[0]) & \
@@ -122,10 +121,10 @@ def vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl,
     
     # CDF Plots 
     fig1 = plt.figure(figsize=(18,12))
-    plt.plot(BL_wave, BL_cdf, linewidth=3, linestyle='--', c='#DB1D1A', label=r'Fitted H$\alpha$ BL CDF', alpha=0.8)
+    plt.plot(BL_wave, BL_cdf, linewidth=3, linestyle='--', c='#DB1D1A', label=r'Fitted H$\alpha$ BL CDF')
     plt.axvline(ctr, c='#DB1D1A', linestyle='--', linewidth=1, label='Fitted Centroid')
-    plt.plot(clean_EL_wave, clean_BL_cdf, linewidth=3, c='b', label=r'Cleaned H$\alpha$ BL CDF', alpha=0.5)
-    plt.axvline(clean_ctr, c='b', linewidth=1, label='Cleaned Centroid')
+    plt.plot(clean_EL_wave, clean_BL_cdf, linewidth=3, c='royalblue', label=r'Cleaned H$\alpha$ BL CDF', alpha=0.6)
+    plt.axvline(clean_ctr, c='royalblue', linewidth=1, label='Cleaned Centroid')
     plt.title(source+line_plot+r' CDF', fontsize=30)
     plt.ylabel('Probability', fontsize=20, labelpad=10)
     plt.xlabel(r'Wavelength ($\rm \AA$)', fontsize=18, labelpad=10)
@@ -133,8 +132,8 @@ def vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl,
     plt.xticks(fontsize=18)
     plt.yticks(fontsize=18)
     plt.tick_params(which='major', length=12, width=1)
-    plt.text(ctr+20, 0.5, line_plot+r' Fitted BL Centroid = {:.2f} $\AA$'.format(ctr))
-    plt.text(clean_ctr-190, 0.5, line_plot+r' Cleaned BL Centroid = {:.2f} $\AA$'.format(clean_ctr))
+    plt.text(ctr+30, 0.5, line_plot+r' Fitted BL Centroid = {:.2f} $\AA$'.format(ctr))
+    plt.text(ctr+30, 0.45, line_plot+r' Cleaned BL Centroid = {:.2f} $\AA$'.format(clean_ctr))
     plt.savefig(path2+source+'_'+line+'_CDF.pdf')
     
     # -------------------------- c80 velocity shift ---------------------------
@@ -314,7 +313,7 @@ def vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl,
     plt.yticks(fontsize=14)
     plt.tick_params(which='major', length=12, width=1)
     plt.legend(fontsize=12)
-    plt.savefig(path2+source+line+'_VProfile.pdf')
+    plt.savefig(path2+source+'_'+line+'_VProfile.pdf')
     
     # ----------------------------- saving results ----------------------------
     
@@ -348,13 +347,13 @@ def vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl,
 # Choose which line complexes you want to calculate the velocity
 # shifts for. NOTE: if not listed, feel free to add according to qsopar.fits
 
-ha_vs = 'yes'
+ha_vs = 'no'
 if(ha_vs == 'yes'):
     line = 'Ha'
     line_plot = r' H$\alpha$'
     color = 'purple'
     wave_range = 6200,6900
-    nl_range = 6500,6800 
+    nl_range = 6520,6580 
     vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl, 
                  bl_profile, data_contFeII_sub)
     
@@ -364,7 +363,17 @@ if(hb_vs == 'yes'):
     line_plot = r' H$\beta$'
     color = 'darkorange'
     wave_range = 4600,5200
-    nl_range = 4700,4900
+    nl_range = 4820,4880
+    vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl, 
+                 bl_profile, data_contFeII_sub)
+
+hg_vs = 'no'
+if(hg_vs == 'yes'):
+    line = 'Hg'
+    line_plot = r' H$\gamma$'
+    color = 'sienna'
+    wave_range = 4200,4500
+    nl_range = 4300,4360
     vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl, 
                  bl_profile, data_contFeII_sub)
 
@@ -373,8 +382,8 @@ if(mg2_vs == 'yes'):
     line = 'MgII'
     line_plot = 'MgII'
     color = 'teal'
-    wave_range = 2700,2900
-    nl_range = 2700,2900
+    wave_range = 2650,3000
+    nl_range = 2760,2810
     vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl, 
                  bl_profile, data_contFeII_sub)
 

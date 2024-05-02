@@ -13,7 +13,7 @@ import pandas as pd
 
 # Results from Fitting-Script.py are saved as plateID-MJD-fiberID_"".npy files
 # Source is just the plateID-MJD-fiberID.
-source = '2025-53431-0603'
+source = '0888-52339-0639'
 #source = '1449-53116-0001'
 
 # Path of stored PyQSOFit fit results
@@ -66,8 +66,8 @@ EL_cdf = np.cumsum(EL_flux_norm)
 #print('IPV10 Calculation:')
 #wave_lim_l10 = 6257.49
 #wave_lim_h10 = 6834.04
-wave_lim_l10 = 6366
-wave_lim_h10 = 6718
+wave_lim_l10 = 6469
+wave_lim_h10 = 6698
 #wave_lim_l10 = 6365
 #wave_lim_h10 = 6712
 # The left 5%

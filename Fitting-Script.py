@@ -47,15 +47,15 @@ path4 = path1+'sfddata/'
 
 # Opening spectrum to be fitted. NOTE: SDSS fits files are saved as
 # spec-plateID-MJD-fiberID.fits. Source is just the plateID-MJD-fiberID
-source = '1779-53089-0238'
+source = '1592-52990-0139'
 spec = 'spec-'+source+'.fits'
 data = fits.open(os.path.join(path1+'Data/'+spec))
 lam = 10**data[1].data['loglam']                           # OBS wavelength (A)
 flux = data[1].data['flux']                           # OBS flux (erg/s/cm^2/A)
 err = 1./np.sqrt(data[1].data['ivar'])                          # 1 sigma error
-z = data[2].data['z'][0]                                             # Redshift
+#z = data[2].data['z'][0]                                             # Redshift
 #print(z)
-z = 0.2755
+z = 0.4517
 
 # Optional information... 
 ra = data[0].header['plug_ra']                                             # RA 
@@ -94,7 +94,7 @@ param_filename = '/Users/lmm8709/PyQSOFit/Fit Results/Line Complex Properties/'+
 
 # Do the fitting. NOTE: Change arguments accordingly
 q_mle.Fit(name=None, nsmooth=1, deredden=False, 
-          reject_badpix=False, wave_range=None, wave_mask=np.array([[4937.,4946.],[4370.,4375.]]), 
+          reject_badpix=False, wave_range=None, wave_mask=None, 
           decompose_host=True, host_line_mask=False, BC03=False, Mi=None, 
           npca_gal=5, npca_qso=10, Fe_uv_op=True, Fe_flux_range=None, 
           poly=True, BC=False, initial_guess=None, tol=1e-10, use_ppxf=True,
@@ -127,7 +127,7 @@ data = fits.open(path3+source+'.fits')
 path5 = path2+'Line Complex Properties/'+source+'/'
 
 # Plotting H_alpha coomplex
-plot_Ha = 'yes'  
+plot_Ha = 'no'  
 if(plot_Ha =='yes'):
     # Plotting broad H_alpha, NII, and SII line complex
     fig1 = plt.figure(figsize=(16,12))
@@ -181,7 +181,7 @@ if(plot_Hb =='yes'):
  
     
 # Plotting broad H_gamma line complex   
-plot_Hg = 'no'                      # want to plot Ha line complex separately?
+plot_Hg = 'yes'                      # want to plot Ha line complex separately?
 if(plot_Hg == 'yes'):
     fig3 = plt.figure(figsize=(16,12))
     for p in range(len(q_mle.gauss_result)//3):
@@ -196,7 +196,7 @@ if(plot_Hg == 'yes'):
              'b', lw=2)
     plt.plot(q_mle.wave, q_mle.line_flux,'k')
     plt.xlim(4250, 4450)
-    plt.ylim(-5, np.max(q_mle.line_flux)-300)
+    plt.ylim(-5, np.max(q_mle.line_flux)-50)
     plt.xlabel(r'$\rm Rest \, Wavelength$ ($\rm \AA$)', fontsize = 20)
     plt.ylabel(r'$\rm f_{\lambda}$ ($\rm 10^{-17} erg\;s^{-1}\;cm^{-2}\;\AA^{-1}$)'
                , fontsize = 20)
@@ -206,7 +206,7 @@ if(plot_Hg == 'yes'):
 
 # Plotting MgII. NOTE: For high z, MgII lines appear and can be used for 
 # calculating velocity shifts when H_alpha not present
-plot_MgII = 'no'                  
+plot_MgII = 'yes'                  
 if(plot_MgII =='yes'):
     fig4 = plt.figure(figsize=(16,12))
     for p in range(len(q_mle.gauss_result)//3):
