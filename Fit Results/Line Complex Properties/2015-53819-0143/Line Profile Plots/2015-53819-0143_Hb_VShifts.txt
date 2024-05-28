@@ -1,0 +1,18 @@
+ 
+Calculated BL Velocity Shifts and Line Profile Parameters:
+ 
+Hb Calculations
+   Fitted Profile Calculations: 
+      Peak Velocity Shift = -2040.43 km s⁻¹
+      Center Velocity Shift = -289.32 km s⁻¹
+      C80 Velocity Shift = -308.31 km s⁻¹
+      IPV width = 16732.09 km s⁻¹
+      Asymmetry = -0.05252
+      Kurtosis = 0.99498
+   Cleaned Profile Calculations: 
+      Center Velocity Shift = -144.98 km s⁻¹
+      C80 Velocity Shift = -167.46 km s⁻¹
+      IPV width = 17570.65 km s⁻¹
+      Asymmetry = -0.07140
+      Kurtosis = 0.98827
+ 

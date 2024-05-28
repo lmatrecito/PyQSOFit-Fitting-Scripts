@@ -80,14 +80,14 @@ Narrow Hγ
     Area =  0.00 x 10^-17 erg s^-1 cm^-2
 
 Broad MgII:
-    FWHM = 2758.35 km s^-1
-    sigma = 5645.53 km s^-1
-    EW =  28.89 Ang
-    Peak =  2813.00 Ang
-    Area =  374.98 x 10^-17 erg s^-1 cm^-2
+    FWHM = 8341.94 km s^-1
+    sigma = 3495.45 km s^-1
+    EW =  22.95 Ang
+    Peak =  2809.23 Ang
+    Area =  295.10 x 10^-17 erg s^-1 cm^-2
 Narrow MgII:
-    FWHM = 0.00 km s^-1
-    sigma = 0.00 km s^-1
-    EW =  0.00 Ang
-    Peak =  0.00 Ang
-    Area =  0.00 x 10^-17 erg s^-1 cm^-2
+    FWHM = 785.78 km s^-1
+    sigma = 327.64 km s^-1
+    EW =  0.42 Ang
+    Peak =  2802.61 Ang
+    Area =  5.47 x 10^-17 erg s^-1 cm^-2

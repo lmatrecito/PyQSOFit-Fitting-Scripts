@@ -1,0 +1,93 @@
+PyQSOFit Calculated Line Properties
+
+Broad Hα:
+    FWHM = 11848.26 km s^-1
+    sigma = 5783.16 km s^-1
+    EW =  759.20 Ang
+    Peak =  6445.94 Ang
+    Area =  8674.97 x 10^-17 erg s^-1 cm^-2
+Narrow Hα:
+    FWHM = 1001.07 km s^-1
+    sigma = 418.22 km s^-1
+    EW =  16.76 Ang
+    Peak =  6565.15 Ang
+    Area =  191.37 x 10^-17 erg s^-1 cm^-2
+Hα Wing:
+    FWHM = 0.00 km s^-1
+    sigma = 0.00 km s^-1
+    EW =  0.00 Ang
+    Peak =  0.00 Ang
+    Area =  0.00 x 10^-17 erg s^-1 cm^-2
+
+Broad Hβ:
+    FWHM = 18613.60 km s^-1
+    sigma = 6430.75 km s^-1
+    EW =  148.05 Ang
+    Peak =  4756.35 Ang
+    Area =  2003.12 x 10^-17 erg s^-1 cm^-2
+Narrow Hβ:
+    FWHM = 1000.74 km s^-1
+    sigma = 418.08 km s^-1
+    EW =  3.66 Ang
+    Peak =  4861.44 Ang
+    Area =  49.31 x 10^-17 erg s^-1 cm^-2
+Hβ Wing:
+    FWHM = 0.00 km s^-1
+    sigma = 0.00 km s^-1
+    EW =  0.00 Ang
+    Peak =  0.00 Ang
+    Area =  0.00 x 10^-17 erg s^-1 cm^-2
+
+Broad Hγ
+    FWHM = 33595.83 km s^-1
+    sigma = 14121.07 km s^-1
+    EW =  25.62 Ang
+    Peak =  4129.46 Ang
+    Area =  415.92 x 10^-17 erg s^-1 cm^-2
+Narrow Hγ
+    FWHM = 958.98 km s^-1
+    sigma = 401.69 km s^-1
+    EW =  1.41 Ang
+    Peak =  4336.55 Ang
+    Area =  21.55 x 10^-17 erg s^-1 cm^-2
+
+[OIII]5007:
+ Core
+    FWHM = 1000.74 km s^-1
+    sigma = 418.08 km s^-1
+    EW =  12.02 Ang
+    Peak =  5006.97 Ang
+    Area =  157.58 x 10^-17 erg s^-1 cm^-2
+ Wing
+    FWHM = 303.84 km s^-1
+    sigma = 121.87 km s^-1
+    EW =  2.36 Ang
+    Peak =  5007.21 Ang
+    Area =  30.91 x 10^-17 erg s^-1 cm^-2
+
+[OIII]4959:
+ Core
+    FWHM = 1000.74 km s^-1
+    sigma = 418.08 km s^-1
+    EW =  3.89 Ang
+    Peak =  4959.04 Ang
+    Area =  51.50 x 10^-17 erg s^-1 cm^-2
+ Wing
+    FWHM = 303.84 km s^-1
+    sigma = 121.87 km s^-1
+    EW =  0.76 Ang
+    Peak =  4959.28 Ang
+    Area =  10.10 x 10^-17 erg s^-1 cm^-2
+
+Broad MgII:
+    FWHM = 0.00 km s^-1
+    sigma = 0.00 km s^-1
+    EW =  0.00 Ang
+    Peak =  0.00 Ang
+    Area =  0.00 x 10^-17 erg s^-1 cm^-2
+Narrow MgII:
+    FWHM = 0.00 km s^-1
+    sigma = 0.00 km s^-1
+    EW =  0.00 Ang
+    Peak =  0.00 Ang
+    Area =  0.00 x 10^-17 erg s^-1 cm^-2

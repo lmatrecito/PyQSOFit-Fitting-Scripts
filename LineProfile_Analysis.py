@@ -14,12 +14,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-################################### SET-UP ####################################
-
 # Results from Fitting-Script.py are saved as plateID-MJD-fiberID_"".npy files
 # Source is just the plateID-MJD-fiberID. SDSS name is the SDSS object name.
-source = '1592-52990-0139'
-SDSS_name = 'X'
+source = '1941-53386-0553'
+SDSS_name = ''
 
 # Path of stored PyQSOFit fit results
 path = 'Fit Results/Line Complex Properties/'+source+'/'+'Fit Data/'
@@ -33,8 +31,8 @@ nl = np.load(path+source+'_NLData.npy')                        # fitted NL data
 data_contFeII_sub = np.load(path+source+'_DataCFeII.npy')    # cleaned spectrum
 data = np.load(path+source+'_Data.npy')             # flux from SDSS .fits file
 wavelength = np.load(path+source+'_Wavelength.npy')
-#z = np.load(path+source+'_z.npy')
-z = 0.4517                                                # corrected redshift
+z = np.load(path+source+'_z.npy')
+#z = 0.3972                                                # corrected redshift
 c = 299792                                             # speed of light in km/s
 
 # Converting .npy files into 2D dataframes to make velocity shift calculations
@@ -347,13 +345,13 @@ def vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl,
 # Choose which line complexes you want to calculate the velocity
 # shifts for. NOTE: if not listed, feel free to add according to qsopar.fits
 
-ha_vs = 'no'
+ha_vs = 'yes'
 if(ha_vs == 'yes'):
     line = 'Ha'
     line_plot = r' H$\alpha$'
     color = 'purple'
     wave_range = 6200,6900
-    nl_range = 6520,6580 
+    nl_range = 6550,6570 
     vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl, 
                  bl_profile, data_contFeII_sub)
     
@@ -362,8 +360,8 @@ if(hb_vs == 'yes'):
     line = 'Hb'
     line_plot = r' H$\beta$'
     color = 'darkorange'
-    wave_range = 4600,5200
-    nl_range = 4820,4880
+    wave_range = 4550,5250
+    nl_range = 4850,4880
     vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl, 
                  bl_profile, data_contFeII_sub)
 
@@ -373,7 +371,7 @@ if(hg_vs == 'yes'):
     line_plot = r' H$\gamma$'
     color = 'sienna'
     wave_range = 4200,4500
-    nl_range = 4300,4360
+    nl_range = 4330,4350
     vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl, 
                  bl_profile, data_contFeII_sub)
 
@@ -382,8 +380,8 @@ if(mg2_vs == 'yes'):
     line = 'MgII'
     line_plot = 'MgII'
     color = 'teal'
-    wave_range = 2650,3000
-    nl_range = 2760,2810
+    wave_range = 2600,3000
+    nl_range = 2790,2805
     vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl, 
                  bl_profile, data_contFeII_sub)
 
