@@ -39,7 +39,7 @@ path1 = '/Users/lmm8709/PyQSOFit/'
 # The path of fit results
 path2 = path1+'Fit Results/'     
 # The path of fits results for the spectrum 
-path3 = path2+'QA Other/'
+path3 = path2+'QA Other/Updated Spectra/'
 # The path of dust reddening map
 path4 = path1+'sfddata/'
 
@@ -47,7 +47,7 @@ path4 = path1+'sfddata/'
 
 # Opening spectrum to be fitted. NOTE: SDSS fits files are saved as
 # spec-plateID-MJD-fiberID.fits. Source is just the plateID-MJD-fiberID
-source = '1941-53386-0553'
+source = '1712-53531-0223'
 spec = 'spec-'+source+'.fits'
 data = fits.open(os.path.join(path1+'Data/'+spec))
 lam = 10**data[1].data['loglam']                           # OBS wavelength (A)
@@ -55,7 +55,7 @@ flux = data[1].data['flux']                           # OBS flux (erg/s/cm^2/A)
 err = 1./np.sqrt(data[1].data['ivar'])                          # 1 sigma error
 z = data[2].data['z'][0]                                             # Redshift
 #print(z)
-#z = 0.237 
+#z = 0.6968
 
 # Optional information... 
 ra = data[0].header['plug_ra']                                             # RA 
@@ -69,15 +69,15 @@ fiberid = data[0].header['fiberid']                             # SDSS fiber ID
 
     
 # Creating directories for fit results 
-fit_plots = '/Users/lmm8709/PyQSOFit/Fit Results/Line Complex Properties/'+source+'/'
+fit_plots = '/Users/lmm8709/PyQSOFit/Fit Results/Line Complex Properties/Updated Spectra/'+source+'/'
 if os.path.isdir(fit_plots) == False:
     os.makedirs(fit_plots, mode=0o777)
 
-fit_data = '/Users/lmm8709/PyQSOFit/Fit Results/Line Complex Properties/'+source+'/Fit Data/'
+fit_data = '/Users/lmm8709/PyQSOFit/Fit Results/Line Complex Properties/Updated Spectra/'+source+'/Fit Data/'
 if os.path.isdir(fit_data) == False:
     os.makedirs(fit_data, mode=0o777)
 
-line_complex_plots = '/Users/lmm8709/PyQSOFit/Fit Results/Line Complex Properties/'+source+'/Line Profile Plots/'
+line_complex_plots = '/Users/lmm8709/PyQSOFit/Fit Results/Line Complex Properties/Updated Spectra/'+source+'/Line Profile Plots/'
 if os.path.isdir(line_complex_plots) == False:
     os.makedirs(line_complex_plots, mode=0o777)
 
@@ -107,7 +107,7 @@ q_mle.Fit(name=None, nsmooth=1, deredden=False,
 end = timeit.default_timer()
 print('Fitting finished in : '+str(np.round(end-start))+'s')
 
-# wave_mask argument structure: np.array([[4907.,4911.],[4976.,4987.]])
+# wave_mask argument structure: np.array([4513.,4521.])
 
 # -----------------------------------------------------------------------------
 
@@ -124,7 +124,7 @@ data = fits.open(path3+source+'.fits')
 # complexes since those will be used for finding velocity shifts
 
 # Path of line complex plots
-path5 = path2+'Line Complex Properties/'+source+'/'
+path5 = path2+'Line Complex Properties/Updated Spectra/'+source+'/'
 
 # Plotting H_alpha coomplex
 plot_Ha = 'yes'  
@@ -146,7 +146,7 @@ if(plot_Ha =='yes'):
     plt.xticks(fontsize=16)
     plt.yticks(fontsize=16)
     plt.tick_params(which='major', length=12, width=1)
-    plt.ylim(-5, np.max(q_mle.line_flux))
+    plt.ylim(-5, np.max(q_mle.line_flux)-30)
     plt.xlabel(r'$\rm Rest \, Wavelength$ ($\rm \AA$)', fontsize = 18)
     plt.ylabel(r'$\rm f_{\lambda}$ ($\rm 10^{-17} erg\;s^{-1}\;cm^{-2}\;\AA^{-1}$)'
                , fontsize = 18)
@@ -172,7 +172,7 @@ if(plot_Hb =='yes'):
     plt.xticks(fontsize=16)
     plt.yticks(fontsize=16)
     plt.tick_params(which='major', length=12, width=1)
-    plt.ylim(-5, np.max(q_mle.line_flux))
+    plt.ylim(-5, np.max(q_mle.line_flux)+5)
     plt.xlabel(r'$\rm Rest \, Wavelength$ ($\rm \AA$)', fontsize = 18)
     plt.ylabel(r'$\rm f_{\lambda}$ ($\rm 10^{-17} erg\;s^{-1}\;cm^{-2}\;\AA^{-1}$)'
                , fontsize = 18)
@@ -221,7 +221,7 @@ if(plot_MgII =='yes'):
              'b', lw=2)
     plt.plot(q_mle.wave, q_mle.line_flux,'k')
     plt.xlim(2650, 2950)
-    plt.ylim(-5, np.max(q_mle.line_flux))
+    plt.ylim(-5, np.max(q_mle.line_flux)-15)
     plt.xlabel(r'$\rm Rest \, Wavelength$ ($\rm \AA$)', fontsize = 20)
     plt.ylabel(r'$\rm f_{\lambda}$ ($\rm 10^{-17} erg\;s^{-1}\;cm^{-2}\;\AA^{-1}$)'
                    , fontsize = 20)

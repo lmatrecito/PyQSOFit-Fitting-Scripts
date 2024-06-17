@@ -1,6 +1,5 @@
  
 Calculated BL Velocity Shifts and Line Profile Parameters:
- 
 Hb Calculations
    Fitted Profile Calculations: 
       Peak Velocity Shift = 1353.46 km s⁻¹
