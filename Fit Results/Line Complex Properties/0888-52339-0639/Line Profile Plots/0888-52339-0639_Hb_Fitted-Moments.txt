@@ -1,0 +1,6 @@
+Hb Fitted Moments Calculations: 
+   Centroid =  4877.91
+   Std. Deviation =  86.39
+   Skewness =  0.33
+   Pearsons Skewness =  -0.20
+   Kurtosis =  4.44

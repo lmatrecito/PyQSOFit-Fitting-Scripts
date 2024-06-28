@@ -1,0 +1,6 @@
+Hb Cleaned Moments Calculations: 
+   Centroid =  4870.53
+   Std. Deviation =  78.63
+   Skewness =  -0.27
+   Pearsons Skewness =  -0.26
+   Kurtosis =  4.37

@@ -1,0 +1,6 @@
+Ha Fitted Moments Calculations: 
+   Centroid =  nan
+   Std. Deviation =  nan
+   Skewness =  nan
+   Pearsons Skewness =  nan
+   Kurtosis =  nan

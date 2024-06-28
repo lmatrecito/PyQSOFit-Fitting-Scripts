@@ -7,7 +7,7 @@ This is a temporary script file.
 
 import numpy as np
 
-logsigma = 0.0005
+logsigma = 0.0003
 Y = 2*np.sqrt(2*np.log(2))*(np.exp(logsigma)-1)*300000
 
 print(Y)

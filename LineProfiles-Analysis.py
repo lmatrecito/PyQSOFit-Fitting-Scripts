@@ -3,7 +3,7 @@ LineProfiles-Analysis.py
 L. Matrecito, lmm8709@rit.edu
 Thu Jun 13 2024
 
-This code can analyzes the fit results of the python code Fitting-Script.py 
+This code can analyze the fit results of the python code Fitting-Script.py 
 used with PyQSOFit. It calculates the following velocity shifts: peak, centroid, 
 and line center at 80% of the area. Additionally, we analyze the characteristic 
 line profile shape using the area-based parameters proposed by Whittle (1985). 
@@ -39,9 +39,9 @@ for i in glob.glob(path_sources+"/**"):
 
 def lineprofile_analysis(source):
     # Path of stored PyQSOFit fit results
-    path = 'Fit Results/Line Complex Properties 2/'+source+'/'+'Fit Data/'
+    path = 'Fit Results/Updated Spectra/'+source+'/'+'Fit Data/'
     # Path for saving results from this code
-    path2 = 'Fit Results/Line Complex Properties 2/'+source+'/'+'Line Profile Plots/'
+    path2 = 'Fit Results/Updated Spectra/'+source+'/'+'Line Profile Plots/'
     
     # Obtaining line profile data result components from Fitting-Script.py
     bl = np.load(path+source+'_BLData.npy')                    # fitted BL data
@@ -373,7 +373,7 @@ def lineprofile_analysis(source):
             vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl, 
                      bl_profile, data_contFeII_sub)
         except:
-            with open(path_exc+"Excluded-Analysis.txt", "a" ) as s:
+            with open(path_exc+"Excluded-Analysis.txt", "w" ) as s:
                 print(line+" is not within range for object: "+source, file=s)
         
     hb_vs = 'yes'
@@ -407,7 +407,7 @@ def lineprofile_analysis(source):
             vs_calcs(wave_range, nl_range, bl_data, nl_data, wavelength, bl, nl, 
                  bl_profile, data_contFeII_sub)
         except:
-            with open(path_exc+"Excluded-Analysis.txt", "a" ) as s:
+            with open(path_exc+"Excluded-Analysis.txt", "w" ) as s:
                 print(line+" is not within range for object: "+source, file=s)
         
     return
@@ -418,12 +418,12 @@ def lineprofile_analysis(source):
 # do the analysis on just one object, set loop to False and write the source as
 # plateID-MJD-fiberID.
 
-loop = True
+loop = False
 if loop:
     for source in source:
         lineprofile_analysis(source)
 else:
-    single_source = ''
+    single_source = '11376-58430-0084'
     lineprofile_analysis(single_source)
 
 end = timeit.default_timer()

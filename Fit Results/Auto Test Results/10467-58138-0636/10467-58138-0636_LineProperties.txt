@@ -1,0 +1,51 @@
+PyQSOFit Calculated Line Properties
+
+Hα was not fitted
+Broad Hβ:
+    FWHM = 10237.35 km s^-1
+    sigma = 7802.67 km s^-1
+    EW =  73.78 Ang
+    Peak =  4872.95 Ang
+    Area =  1871.23 x 10^-17 erg s^-1 cm^-2
+Narrow Hβ:
+    FWHM = 377.41 km s^-1
+    sigma = 157.77 km s^-1
+    EW =  0.23 Ang
+    Peak =  4861.59 Ang
+    Area =  5.74 x 10^-17 erg s^-1 cm^-2
+Hβ Wing:
+    FWHM = 0.00 km s^-1
+    sigma = 0.00 km s^-1
+    EW =  0.00 Ang
+    Peak =  0.00 Ang
+    Area =  0.00 x 10^-17 erg s^-1 cm^-2
+
+[OIII]4959:
+ Core
+    FWHM = 377.41 km s^-1
+    sigma = 157.77 km s^-1
+    EW =  2.16 Ang
+    Peak =  4959.19 Ang
+    Area =  54.10 x 10^-17 erg s^-1 cm^-2
+ Wing
+    FWHM = 0.00 km s^-1
+    sigma = 0.00 km s^-1
+    EW =  0.00 Ang
+    Peak =  0.00 Ang
+    Area =  0.00 x 10^-17 erg s^-1 cm^-2
+
+[OIII]5007:
+ Core
+    FWHM = 377.41 km s^-1
+    sigma = 157.77 km s^-1
+    EW =  6.68 Ang
+    Peak =  5007.12 Ang
+    Area =  165.52 x 10^-17 erg s^-1 cm^-2
+ Wing
+    FWHM = 0.00 km s^-1
+    sigma = 0.00 km s^-1
+    EW =  0.00 Ang
+    Peak =  0.00 Ang
+    Area =  0.00 x 10^-17 erg s^-1 cm^-2
+
+MgII was not fitted

@@ -1,0 +1,6 @@
+Ha Fitted Moments Calculations: 
+   Centroid =  6556.05
+   Std. Deviation =  91.88
+   Skewness =  0.55
+   Pearsons Skewness =  0.16
+   Kurtosis =  3.54

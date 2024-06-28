@@ -15,4 +15,7 @@ Ha Calculations
       IPV width = 10615.66 km s⁻¹
       Asymmetry = -0.19510
       Kurtosis = 0.81011
+
+
+
  

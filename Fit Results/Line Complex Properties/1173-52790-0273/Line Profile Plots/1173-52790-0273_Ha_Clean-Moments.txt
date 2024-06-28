@@ -1,0 +1,6 @@
+Ha Cleaned Moments Calculations: 
+   Centroid =  6505.92
+   Std. Deviation =  64.99
+   Skewness =  -1.62
+   Pearsons Skewness =  1.76
+   Kurtosis =  4.87

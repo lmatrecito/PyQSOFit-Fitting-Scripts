@@ -466,7 +466,9 @@ class QSOFit():
         else:
             self.decomposed = False
             if self.z > z_max_host and decompose_host == True:
-                print(f'redshift larger than {z_max_host} is not allowed for host decomposion!')
+               print(f'redshift larger than {z_max_host} is not allowed for host decomposion!')
+        
+
         
         """
         Fit the continuum
@@ -650,8 +652,8 @@ class QSOFit():
             self.host_data = datacube[1, :] - self.qso
             
         return self.wave, self.flux, self.err
-    
-    
+
+            
     def _decompose_host_qso_core(self, wave, flux, err, z, Mi, npca_gal, npca_qso, path):
         """
         core function to do host decomposition
